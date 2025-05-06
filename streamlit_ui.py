@@ -11,7 +11,10 @@ skills = st.text_input("Enter Key Skills (comma separated)")
 if st.button("Recommend"):
     query = f"{job_role} {skills}"
     try:
-        response = requests.post("https://shl-assessment-engine-2.onrender.com/recommend", json={"query": query})
+        response = requests.post(
+            "https://shl-backend-2.onrender.com/recommend",
+            json={"query": query}
+        )
 
         if response.status_code == 200:
             data = response.json()
